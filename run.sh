@@ -1,3 +1,7 @@
+###unset
+unset mem
+unset core
+unset kvdiv
 ### add some color
 red='\033[1;31m'
 green='\033[1;32m'
@@ -17,7 +21,8 @@ echo -e """
 ██║   ██║█████╔╝ ██║         ██║   ██║██████╔╝███████╗
 ╚██╗ ██╔╝██╔═██╗ ██║         ╚██╗ ██╔╝██╔═══╝ ╚════██║
  ╚████╔╝ ██║  ██╗███████╗     ╚████╔╝ ██║     ███████║
-  ╚═══╝  ╚═╝  ╚═╝╚══════╝      ╚═══╝  ╚═╝     ╚══════╝"""
+  ╚═══╝  ╚═╝  ╚═╝╚══════╝      ╚═══╝  ╚═╝     ╚══════╝  
+  ╚═════════════════VKL═VPS══Project════════════════╝"""
 }
 check()
 {
@@ -26,3 +31,14 @@ core=`lscpu|grep "CPU(s):" |awk '{print $2}'` && printf $yellow"Your Cores:"$res
 }
 checkvm()
 {
+kvdiv=`ls /dev/kvm`
+case "$kvdiv" in
+   "/dev/kvm")kvm=ok;;
+   *)kvm=no;;
+esac
+###show
+case $kvm in
+  "ok")echo "KVM Found!" ;;
+  "no")echo "KVM Not Found, Run Without KVM !" ;;
+esac
+   
