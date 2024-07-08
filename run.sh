@@ -57,12 +57,12 @@ unset kvdiv
 
 setupd()
 {
-echo -e $blue" > Setup" $reset
-echo -e $yellow " ==> Update" $reset
+pan
+echo -e $yellow "==> Update" $reset
 sudo apt update -y >/dev/null 2>&1
-echo -e $yellow " ==> Download Package(Ngrok,Qemu,7z)" $reset
+echo -e $yellow "==> Download Package(Ngrok,Qemu,7z)" $reset
 wget -qq https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -O ngrok.tgz
-tar -xzf ngrok.tgz -C /bin/
+tar -xzf ngrok.tgz -C /bin/ 
 sudo apt install p7zip-full p7zip-rar qemu-system -y >/dev/null 2>&1
 echo -e $green "Setup Done" $reset
 }
@@ -78,6 +78,9 @@ echo -e "$yellow => Download Os Iso..."
 wget -q $isourl -O os.iso –show-progress
 check
 checkvm
+sleep 4
+clear
+pan
 setupd
 ngrok authtoken $ngrok
 qemu-img create -f qcow2 os.qcow2 90G
