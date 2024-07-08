@@ -80,7 +80,6 @@ check
 checkvm
 sleep 4
 clear
-pan
 setupd
 ngrok authtoken $ngrok
 qemu-img create -f qcow2 os.qcow2 90G
