@@ -66,14 +66,15 @@ tar -xzf ngrok.tgz -C /bin/
 sudo apt install p7zip-full p7zip-rar qemu-system -y >/dev/null 2>&1
 echo -e $green "Setup Done" $reset
 }
-ban
-printf "$blue paste your NGROK AUTHTOKEN:"reset""
+pan
+printf "$blue paste your NGROK AUTHTOKEN:"$reset""
 read -p " " ngrok
 clear
 rm -f os.iso
 printf "$blue paste your ISO URL:"$reset""
 read -p " " isourl
 clear
+echo -e "$yellow => Download Os Iso..."
 wget -qq $isourl -O os.iso  –show-progress
 check
 checkvm
