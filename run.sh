@@ -33,12 +33,14 @@ checkvm()
 {
 kvdiv=`ls /dev/kvm`
 case "$kvdiv" in
-   "/dev/kvm")kvm=ok;;
-   *)kvm=no;;
+   "/dev/kvm")kvm=ok;lkvm="-enable-kvm -cpu host";;
+   *)kvm=no;lkvm="-cpu core2duo";;
 esac
 ###show
 case $kvm in
   "ok")echo "KVM Found!" ;;
   "no")echo "KVM Not Found, Run Without KVM !" ;;
 esac
-   
+unset kvm
+unset kvdiv
+}
