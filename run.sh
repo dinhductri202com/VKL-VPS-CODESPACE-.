@@ -87,11 +87,12 @@ clear
 pan
 echo -e "$blue Connect!"
 echo "$yellow ==>  https://github.com/dinhductri202com/VKL-VPS-CODESPACE-. "
-qemu-system-x86_64 -device e1000,netdev=n0 -netdev user,id=n0 -machine usb=on -device usb-tablet -vga vmware -cdrom os.iso -hda os.qcow2 -smp cores="$core" -m "$mem"M $lkvm -vnc :1 &>/dev/null &
-printf ""$green"Your Address: $reset"
+qemu-system-x86_64 -drive file=os.iso,media=cdrom -hda os.qcow2 -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :1 -smp cores="$core" -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -M "$mem"M $lkvm
+printf ""$green"Your Address: "$reset""
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
-echo "$yellow If there is any problem, please email me dinhductri2021@gmail.com "
-sleep 10d
-pkill qemu
-pkill ngrok
-
+while true # start an infinite loop
+do
+   sudo sync; echo 3 > /proc/sys/vm/drop_caches
+   echo VKL VPS
+   sleep 60 # wait for 1 second
+done # end the loop
