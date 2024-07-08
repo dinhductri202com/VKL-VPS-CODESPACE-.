@@ -86,7 +86,7 @@ clear
 pan
 echo -e "$blue Connect!"
 echo "$yellow ==>  https://github.com/dinhductri202com/VKL-VPS-CODESPACE-. "
-qemu-system-x86_64 -device e1000,netdev=n0 -netdev user,id=n0 -machine usb=on -device usb-tablet -vga vmware -cdrom os.iso -hda os.qcow2 -smp cores="$core" -m $mem $lkvm &>/dev/null &
+qemu-system-x86_64 -device e1000,netdev=n0 -netdev user,id=n0 -machine usb=on -device usb-tablet -vga vmware -cdrom os.iso -hda os.qcow2 -smp cores="$core" -m "$mem"M $lkvm &>/dev/null &
 printf ""$green"Your Address: $reset"
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 sleep 10d
