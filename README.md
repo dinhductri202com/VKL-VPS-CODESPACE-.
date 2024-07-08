@@ -1,6 +1,8 @@
 <h2 align="Center">VKL VPS On Codespace </h2>
 
 ``` Version: 1.0 ```
+``` ngrok:Done ```
+``` tailscale:coming soon ```
 
 ## Run
 
