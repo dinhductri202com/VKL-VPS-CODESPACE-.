@@ -57,6 +57,8 @@ unset kvdiv
 
 setupd()
 {
+rm -f ngrok.tgz
+rm -f /bin/ngrok
 pan
 echo -e $yellow "==> Update" $reset
 sudo apt update -y >/dev/null 2>&1
