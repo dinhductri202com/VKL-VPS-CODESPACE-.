@@ -1,4 +1,4 @@
-4######Title Coming soon !
+######Title Coming soon !
 ###unset
 unset mem
 unset core
@@ -80,7 +80,7 @@ checkvm
 setupd
 ngrok authtoken $ngrok
 qemu-img create -f qcow2 os.qcow2 90G
-nohup ngrok tcp 5901 &>/dev/null &
+nohup ngrok tcp 5901 --region ap &>/dev/null &
 sleep 3
 clear
 pan
