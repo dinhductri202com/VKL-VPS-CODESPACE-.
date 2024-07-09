@@ -55,10 +55,22 @@ esac
 unset kvm
 unset kvdiv
 }
-
-
+pan
 clear
 check
 checkvm
-ngrok tcp 5901 --region ap
-qemu-system-x86_64 -drive file=os.iso,media=cdrom -drive file=disk.img,format=raw -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :1 -smp threads=1,sockets=1,cores=$core -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -m "$mem"M $lkvm
+clear
+nohup ngrok tcp 5901 --region ap &>/dev/null &
+sleep 3
+pan
+echo -e "$blue Connect!"
+echo -e "$yellow ==>  https://github.com/dinhductri202com/VKL-VPS-CODESPACE-. "
+qemu-system-x86_64 -drive file=os.iso,media=cdrom -drive file=disk.img,format=raw -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :1 -smp threads=1,sockets=1,cores=$core -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -m "$mem"M $lkvm  &>/dev/null &
+printf ""$green"Your Address: "$reset""
+curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+while true # start an infinite loop
+do
+   sudo sync; echo 3 > /proc/sys/vm/drop_caches
+   echo VKL VPS
+   sleep 60 # wait for 1 second
+done # end the loop
