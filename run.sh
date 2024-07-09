@@ -83,10 +83,10 @@ checkvm
 sleep 4
 clear
 setupd
-ngrok authtoken $ngrok
-qemu-img create -f raw disk.img 128G
+ngrok authtoken $ngrok &>dev/null
+qemu-img create -f raw disk.img 50G &>/dev/null
 nohup ngrok tcp 5901 --region ap &>/dev/null &
-sleep 3
+sleep 5
 clear
 pan
 echo -e "$blue Connect!"
