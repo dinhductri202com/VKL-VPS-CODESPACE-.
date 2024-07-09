@@ -77,8 +77,8 @@ rm -f os.iso
 printf "$blue paste your ISO URL:"$reset""
 read -p " " isourl
 clear
-echo -e "$yellow => Download Os Iso..."
-wget -q $isourl -O os.iso
+echo -e "$yellow => Download OS Iso... (It will take a few minutes) "
+wget -q --show-progress $isourl
 check
 checkvm
 sleep 4
