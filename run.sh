@@ -65,6 +65,7 @@ sudo apt update -y >/dev/null 2>&1
 echo -e $yellow "==> Download Package(Ngrok,Qemu,7z)" $reset
 wget -qq https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -O ngrok.tgz
 tar -xzf ngrok.tgz -C /bin/ 
+wget https://raw.githubusercontent.com/dinhductri202com/VKL-VPS-CODESPACE-./main/start.sh -qq
 sudo apt install p7zip-full p7zip-rar qemu-system -y >/dev/null 2>&1
 echo -e $green "Setup Done" $reset
 }
